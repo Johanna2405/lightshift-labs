@@ -73,4 +73,47 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  @keyframes bubble-pop {
+    from {
+      transform: scale(0.96);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float-y {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .animate-bubble {
+    animation: bubble-pop 260ms ease-out both;
+  }
+  .animate-float {
+    animation: float-y 6s ease-in-out infinite;
+  }
+
+  /* Bewege weniger bei Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float {
+      animation: none;
+    }
+    .animate-bubble {
+      animation-duration: 1ms;
+    }
+  }
+  .avoid-break {
+    break-inside: avoid;
+  }
 }

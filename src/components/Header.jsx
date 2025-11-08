@@ -1,4 +1,4 @@
-import logo from "../assets/logo.svg";
+import logo from "../../public/media/logo.svg";
 
 export default function Header({ year, title, onMenuOpen }) {
   return (

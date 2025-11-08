@@ -5,6 +5,7 @@ import data from "./data/timeline.json";
 import Header from "./components/Header.jsx";
 import TimelineRail from "./components/TimelineRail.jsx";
 import MenuSidebar from "./components/MenuSidebar.jsx";
+import PanelRenderer from "./components/PanelRenderer.jsx";
 
 const YEARS = data.map((d) => d.year);
 const LATEST = Math.max(...YEARS);
@@ -72,10 +73,10 @@ export default function App() {
               {current?.title}
             </h2>
 
-            <div className="rounded-2xl border border-border-600 p-8 bg-bg-800">
-              <p className="text-text-tertiary">
-                Placeholder-Content für {currentYear}. Panels folgen später.
-              </p>
+            <div className="space-y-6">
+              {(current?.panels ?? []).map((p, i) => (
+                <PanelRenderer key={i} panel={p} />
+              ))}
             </div>
           </motion.section>
         </AnimatePresence>

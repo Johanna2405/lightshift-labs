@@ -1,12 +1,368 @@
 [
-  { "year": 2016, "title": "Gründung Lightshift Labs", "panels": [] },
-  { "year": 2017, "title": "Erstes Demo", "panels": [] },
-  { "year": 2018, "title": "Community wächst", "panels": [] },
-  { "year": 2019, "title": "Toolset v1", "panels": [] },
-  { "year": 2020, "title": "Major Release", "panels": [] },
-  { "year": 2021, "title": "AR/VR Feature", "panels": [] },
-  { "year": 2022, "title": "Kooperationen", "panels": [] },
-  { "year": 2023, "title": "Open-Source SDK", "panels": [] },
-  { "year": 2024, "title": "Expansion", "panels": [] },
-  { "year": 2025, "title": "Ausblick", "panels": [] }
+  {
+    "year": 2016,
+    "title": "Gründung Lightshift Labs",
+    "panels": [
+      {
+        "type": "teamIntro",
+        "headline": "Das Gründerteam",
+        "subhead": "Drei Frauen. Eine Idee. Viel Neon.",
+        "members": [
+          {
+            "name": "Alex",
+            "role": "Founder & Engine Dev",
+            "quote": "Wir bauen Tools, die Kreativität beschleunigen.",
+            "avatar": "/media/team/alex.jpg",
+            "tags": ["C++", "Rendering", "Build-Systems"]
+          },
+          {
+            "name": "Juna",
+            "role": "Co-Founder & Art Direction",
+            "quote": "Stylized Sci-Fi ist unsere DNA.",
+            "avatar": "/media/team/juna.jpg",
+            "tags": ["Art", "Shaders", "UX"]
+          },
+          {
+            "name": "Leo",
+            "role": "Business & Community",
+            "quote": "Modding-Community first.",
+            "avatar": "/media/team/leo.jpg",
+            "tags": ["Data", "Docs", "Discord"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2017,
+    "title": "Erstes Demo-Release",
+    "panels": [
+      {
+        "type": "videoMetrics",
+        "headline": "Unser erstes Demo-Release",
+        "subhead": "Ein Meilenstein für die Community.",
+        "videoHeadline": "Demo Trailer 2017",
+        "videoSubhead": "Der erste offizielle Blick auf unsere Engine.",
+        "video": "/media/2017-demo.mp4",
+        "poster": "/media/2017-demo-poster.jpg",
+        "metrics": [
+          { "label": "Downloads", "value": 10000 },
+          { "label": "Discord", "value": 1200 },
+          { "label": "Mods", "value": 35 },
+          { "label": "Rating", "value": 4.8, "suffix": "★" }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "title": "Community wächst",
+    "panels": [
+      {
+        "type": "communityBubbles",
+        "headline": "Stimmen aus der Community",
+        "subhead": "Feedback, Mods und Ideen – direkt aus unserem Discord.",
+        "messages": [
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "cyberluke",
+            "text": "Love the stylized look!"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "pixela",
+            "text": "My first mod shipped 🚀"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "shaderkid",
+            "text": "Any ETA for Linux builds?"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "audiowave",
+            "text": "Spatial audio is insane 🔊"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "devkat",
+            "text": "Docs were super clear, thanks!"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "orbit",
+            "text": "When is next update?"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "modsmith",
+            "text": "Created a tool for kitbashing."
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "nova",
+            "text": "Performance improved a lot!"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "bitgrid",
+            "text": "Please add WebGPU export ✨"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "iris",
+            "text": "The community is wholesome ❤️"
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "frostbyte",
+            "text": "New shader graph is slick."
+          },
+          {
+            "avatar": "/media/avatars/u1.png",
+            "user": "kumo",
+            "text": "Made a tutorial for beginners."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2019,
+    "title": "Toolset v1: Podcast",
+    "panels": [
+      {
+        "type": "podcast",
+        "headline": "Launch Talk – Toolset v1",
+        "subhead": "Warum wir Lightshift bauen und wohin die Reise geht.",
+        "episodeTitle": "Episode 01 · Warum Lightshift?",
+        "description": "Hintergründe, Architektur-Entscheidungen und die Rolle der Community.",
+        "audio": "/media/podcast/ep1.ogg",
+        "cover": "/media/podcast/cover-ep-1.jpg",
+        "duration": 420,
+        "chapters": [
+          { "label": "Intro", "time": 0 },
+          { "label": "Architektur", "time": 75 },
+          { "label": "Community", "time": 170 },
+          { "label": "Roadmap", "time": 300 }
+        ],
+        "transcript": [
+          "Host: Willkommen zur ersten Episode …",
+          "CTO: Unser Ziel ist…",
+          "Art Direction: Stylized Sci-Fi …"
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2020,
+    "title": "Major Release + Trailer",
+    "panels": [
+      {
+        "type": "heroTrailer",
+        "headline": "Major Release 2020",
+        "subhead": "Der größte Sprung seit unserem ersten Demo.",
+        "video": "/media/2020-trailer.mp4",
+        "poster": "/media/podcast/cover-ep-1.jpg",
+        "captions": "/media/2020-trailer-de.vtt",
+        "features": [
+          "Realtime Compiler",
+          "Scene Graph",
+          "GPU Profiler",
+          "Shader Hot Reload",
+          "Multi-Platform Build"
+        ],
+        "ctas": [
+          { "label": "Release Notes", "href": "#", "style": "primary" },
+          { "label": "Demo laden", "href": "#", "style": "ghost" }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2021,
+    "title": "AR/VR Feature",
+    "panels": [
+      {
+        "type": "arvr",
+        "headline": "AR/VR Engine Feature",
+        "subhead": "Erweiterte Realität trifft stylized Sci-Fi.",
+        "arHeadline": "Augmented Reality",
+        "arSubhead": "Interaktiv. Stabil. Ready für prototyping.",
+        "vrHeadline": "Virtual Reality",
+        "vrSubhead": "Immersive Szenen. Performance optimiert.",
+        "arClip": "/media/2021-ar.mp4",
+        "vrClip": "/media/2021-vr.mp4",
+        "arPoster": "/media/2021-ar-poster.jpg",
+        "vrPoster": "/media/2021-vr-poster.jpg",
+        "features": [
+          "Markerless Tracking",
+          "Hand/Body Gestures",
+          "Spatial Audio",
+          "Low-latency Pipeline"
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2022,
+    "title": "Kooperationen",
+    "panels": [
+      {
+        "type": "logoGrid",
+        "headline": "Partner & Kooperationen",
+        "subhead": "Gemeinsam schneller – Tools, Publishing & Forschung.",
+        "logos": [
+          {
+            "src": "/media/logos/partner1.svg",
+            "alt": "Partner One",
+            "href": "#"
+          },
+          {
+            "src": "/media/logos/partner2.svg",
+            "alt": "Partner Two",
+            "href": "#"
+          },
+          {
+            "src": "/media/logos/partner3.svg",
+            "alt": "Partner Three",
+            "href": "#"
+          },
+          {
+            "src": "/media/logos/partner4.svg",
+            "alt": "Partner Four",
+            "href": "#"
+          },
+          {
+            "src": "/media/logos/partner5.svg",
+            "alt": "Partner Five",
+            "href": "#"
+          },
+          {
+            "src": "/media/logos/partner6.svg",
+            "alt": "Partner Six",
+            "href": "#"
+          }
+        ],
+        "note": "Weiße SVGs bevorzugt; PNG/WEBP mit transparentem Hintergrund geht auch."
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "title": "Open-Source SDK",
+    "panels": [
+      {
+        "type": "infographic",
+        "headline": "Open-Source SDK – Layered Architecture",
+        "subhead": "Von Core bis Apps – klar getrennte Schichten, offene Schnittstellen.",
+        "caption": "Mehrschichtiges Architekturdiagramm (2023)"
+      }
+    ]
+  },
+  {
+    "year": 2024,
+    "title": "Expansion / Team",
+    "panels": [
+      {
+        "type": "teamExpansion",
+        "headline": "Das Team wächst",
+        "subhead": "Neue Talente, neue Abteilungen – Lightshift Labs skaliert.",
+        "teamPhoto": "/media/team-2024.jpg",
+        "members": [
+          {
+            "name": "Ayla R.",
+            "role": "Lead Rendering",
+            "avatar": "/media/team/ayla.jpg"
+          },
+          {
+            "name": "Jin M.",
+            "role": "Physics Engineer",
+            "avatar": "/media/team/jin.jpg"
+          },
+          {
+            "name": "Leo K.",
+            "role": "Tech Producer",
+            "avatar": "/media/team/leo.jpg"
+          },
+          {
+            "name": "Naya S.",
+            "role": "UX Research",
+            "avatar": "/media/team/naya.jpg"
+          },
+          {
+            "name": "Rex T.",
+            "role": "Audio DSP",
+            "avatar": "/media/team/rex.jpg"
+          },
+          {
+            "name": "Mira D.",
+            "role": "Community",
+            "avatar": "/media/team/mira.jpg"
+          }
+        ],
+        "stats": [
+          { "label": "Teamgröße", "value": 18 },
+          { "label": "Neue Abteilungen", "value": 3 },
+          { "label": "Offene Stellen", "value": 4 }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2025,
+    "title": "Innovation / Roadmap",
+    "panels": [
+      {
+        "type": "roadmap",
+        "headline": "Roadmap 2025",
+        "subhead": "Ein Jahr mit klaren Quartalszielen.",
+        "quarters": [
+          {
+            "id": "Q1",
+            "title": "Q1 · Shader Graph 2.0",
+            "date": "Jan–Mär",
+            "items": [
+              { "type": "feature", "label": "Node Library refresh" },
+              { "type": "tech", "label": "GPU-Cache Optimierung" },
+              { "type": "docs", "label": "Neue Shader-Kochrezepte" }
+            ],
+            "cta": { "label": "Preview ansehen", "href": "#" }
+          },
+          {
+            "id": "Q2",
+            "title": "Q2 · Cloud Builds",
+            "date": "Apr–Jun",
+            "items": [
+              { "type": "infra", "label": "Build Farm (Beta)" },
+              { "type": "feature", "label": "Artefaktverwaltung" },
+              { "type": "security", "label": "Signierte Releases" }
+            ],
+            "cta": { "label": "Beta anfragen", "href": "#" }
+          },
+          {
+            "id": "Q3",
+            "title": "Q3 · Console Export",
+            "date": "Jul–Sep",
+            "items": [
+              { "type": "platform", "label": "SDK Adapters" },
+              { "type": "tooling", "label": "Debugger Hooks" }
+            ],
+            "cta": { "label": "Partnerprogramm", "href": "#" }
+          },
+          {
+            "id": "Q4",
+            "title": "Q4 · AI Assist",
+            "date": "Okt–Dez",
+            "items": [
+              { "type": "ai", "label": "Prompt-to-Shader" },
+              { "type": "ai", "label": "Doc Chat" },
+              { "type": "dx", "label": "Inline Code Actions" }
+            ],
+            "cta": { "label": "Waitlist", "href": "#" }
+          }
+        ]
+      }
+    ]
+  }
 ]
