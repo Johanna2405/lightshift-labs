@@ -87,13 +87,10 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
               ))}
             </ul>
 
-            {/* CTA */}
+            {/* CtA */}
             {activeData?.cta && (
               <div className="mt-5">
-                <a
-                  href={activeData.cta.href}
-                  className="px-4 py-2 rounded-lg text-sm bg-brand-500 hover:bg-accent-luminous text-black transition focus-visible:focus-ring inline-block"
-                >
+                <a href={activeData.cta.href} className="btn-link inline-block">
                   {activeData.cta.label}
                 </a>
               </div>
@@ -102,7 +99,7 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
         </AnimatePresence>
       </div>
 
-      {/* Roadmap Rail */}
+      {/* Roadmap */}
       <div className="rounded-xl border border-border-600 bg-bg-900/60 p-3">
         <ol className="flex items-center justify-between gap-2">
           {quarters.map((q) => {

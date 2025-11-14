@@ -1,22 +1,21 @@
 import TeamIntroPanel from "./panels/TeamIntroPanel.jsx";
-import VideoWithMetricsPanel from "./panels/VideoWithMetricsPanel.jsx";
+import MetricsPanel from "./panels/MetricsPanel.jsx";
 import CommunityBubblesPanel from "./panels/CommunityBubblesPanel.jsx";
 import PodcastPanel from "./panels/PodcastPanel.jsx";
-import HeroTrailerPanel from "./panels/HeroTrailerPanel.jsx";
-import ArvrPanel from "./panels/ArvrPanel.jsx";
 import LogoGridPanel from "./panels/LogoGridPanel.jsx";
-import InfographicsPanel from "./panels/InfographicsPanel.jsx";
 import InfographicMultiLayerPanel from "./panels/InfographicMultiLayerPanel.jsx";
 import TeamExpansionPanel from "./panels/TeamExpansionPanel.jsx";
 import RoadmapPanel from "./panels/RoadmapPanel.jsx";
+import ArvrModelViewerPanel from "./panels/ArvrModelViewerPanel.jsx";
+import FeaturePollPanel from "./panels/FeaturePollPanel.jsx";
 
 const registry = {
   teamIntro: TeamIntroPanel,
-  videoMetrics: VideoWithMetricsPanel,
+  metrics: MetricsPanel,
   communityBubbles: CommunityBubblesPanel,
   podcast: PodcastPanel,
-  heroTrailer: HeroTrailerPanel,
-  arvr: ArvrPanel,
+  featurePoll: FeaturePollPanel,
+  arvr: ArvrModelViewerPanel,
   logoGrid: LogoGridPanel,
   infographic: InfographicMultiLayerPanel,
   teamExpansion: TeamExpansionPanel,

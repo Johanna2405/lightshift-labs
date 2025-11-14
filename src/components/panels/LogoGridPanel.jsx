@@ -1,4 +1,4 @@
-export default function LogoGridPanel({ headline, subhead, logos = [] }) {
+export default function LogoGridPanel({ headline, subhead, logos, text = [] }) {
   const items = Array.isArray(logos) ? logos : [];
 
   return (
@@ -10,6 +10,7 @@ export default function LogoGridPanel({ headline, subhead, logos = [] }) {
           </h2>
         )}
         {subhead && <p className="text-text-secondary">{subhead}</p>}
+        <p className="my-4 text-text-secondary text-s">{text}</p>
       </header>
 
       <div
@@ -62,11 +63,6 @@ export default function LogoGridPanel({ headline, subhead, logos = [] }) {
           );
         })}
       </div>
-
-      {/* Optional: Mini-Hinweiszeile */}
-      <p className="mt-4 text-xs text-text-tertiary">
-        Logos © jeweilige Eigentümer. Verwendung nur zu Demonstrationszwecken.
-      </p>
     </section>
   );
 }

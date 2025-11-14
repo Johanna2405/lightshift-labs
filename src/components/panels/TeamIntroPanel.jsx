@@ -1,6 +1,11 @@
-export default function TeamIntroPanel({ headline, subhead, members = [] }) {
+export default function TeamIntroPanel({
+  headline,
+  subhead,
+  members,
+  text = [],
+}) {
   return (
-    <section className="w-full rounded-2xl border border-border-600/var(--tw-border-opacity,1) p-6 md:p-8 bg-bg-800/40">
+    <section className="w-full rounded-2xl border border-border-600 p-6 md:p-8 bg-bg-800/40">
       <header className="mb-6">
         {headline && (
           <h2 className="text-2xl md:text-3xl mb-1 font-semibold">
@@ -8,6 +13,7 @@ export default function TeamIntroPanel({ headline, subhead, members = [] }) {
           </h2>
         )}
         {subhead && <p className="text-text-secondary">{subhead}</p>}
+        <p className="text-text-secondary text-s mt-4"> {text}</p>
       </header>
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

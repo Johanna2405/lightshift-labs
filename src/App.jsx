@@ -11,18 +11,22 @@ const YEARS = data.map((d) => d.year);
 const LATEST = Math.max(...YEARS);
 
 export default function App() {
+  // Navigation
   const { year } = useParams();
   const navigate = useNavigate();
 
+  // Menu state
   const [menuOpen, setMenuOpen] = useState(false);
   const [returnFocusEl, setReturnFocusEl] = useState(null);
 
+  // Menü-Funktionen
   const openMenu = (triggerEl) => {
     setReturnFocusEl(triggerEl);
     setMenuOpen(true);
   };
   const closeMenu = () => setMenuOpen(false);
 
+  // Timeline-Funktionen
   const currentYear = useMemo(() => {
     const y = parseInt(year, 10);
     return Number.isFinite(y) && YEARS.includes(y) ? y : LATEST;
@@ -47,7 +51,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header year={currentYear} title={current?.title} onMenuOpen={openMenu} />
+      <Header onMenuOpen={openMenu} />
 
       <main
         className="flex-1 flex items-center justify-center px-6"
@@ -69,10 +73,6 @@ export default function App() {
             >
               {currentYear}
             </h1>
-            <h2 className="text-text-secondary lowercase tracking-wide text-2xl mb-8">
-              {current?.title}
-            </h2>
-
             <div className="space-y-6">
               {(current?.panels ?? []).map((p, i) => (
                 <PanelRenderer key={i} panel={p} />

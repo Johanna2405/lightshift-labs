@@ -1,4 +1,3 @@
-// CommunityBubblesPanel.jsx
 function Bubble({ avatar, user, text, delay = 0, offset = "none" }) {
   // leicht variierende Offsets für organischen Flow
   const offsetClass =

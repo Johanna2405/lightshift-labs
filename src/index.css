@@ -62,6 +62,53 @@
 
 /* Small utilities */
 @layer utilities {
+  /* Generic button-link (classic CSS, no @apply) */
+  .btn-link {
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.25rem;
+    cursor: pointer; /* cursor-pointer */
+    border: 1px solid transparent; /* border border-transparent */
+    background-color: var(--color-brand-500); /* bg-brand-500 */
+    color: var(
+      --color-text-primary,
+      #0b0b0b
+    ); /* optional: readable on bright brand */
+    transition: background-color 200ms ease, border-color 200ms ease,
+      color 200ms ease, box-shadow 200ms ease; /* transition */
+  }
+
+  .btn-link:hover {
+    background-color: var(
+      --color-accent-luminous
+    ); /* hover:bg-accent-luminous */
+  }
+
+  .btn-link:focus-visible {
+    outline: none; /* focus-visible:focus-ring (approx) */
+    box-shadow: 0 0 0 2px var(--color-bg-900), 0 0 0 4px var(--color-brand-500);
+    /* inner ring matches surface, outer ring = brand */
+  }
+
+  /* Optional states */
+  .btn-link:disabled,
+  .btn-link[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* If you sometimes want a “ghost” / secondary variant */
+  .btn-link--ghost {
+    background-color: transparent;
+    border-color: var(--color-border-600);
+    color: var(--color-text-primary);
+  }
+  .btn-link--ghost:hover {
+    border-color: var(--color-border-500);
+    background-color: var(--color-bg-700);
+  }
+
   .focus-ring {
     outline: 2px solid var(--color-accent-luminous);
     outline-offset: 3px;
@@ -94,6 +141,35 @@
     }
     100% {
       transform: translateY(0px);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0% {
+      opacity: 0.45;
+    }
+    50% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 0.45;
+    }
+  }
+  @keyframes dash-move {
+    to {
+      stroke-dashoffset: -120;
+    }
+  }
+  .anim-glow {
+    animation: glow-pulse 3.5s ease-in-out infinite;
+  }
+  .anim-dash {
+    animation: dash-move 8s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-glow,
+    .anim-dash {
+      animation: none;
     }
   }
 

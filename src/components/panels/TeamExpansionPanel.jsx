@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import useCountUp from "../../hooks/useCountUp";
 
+// Zähler
 function StatCard({ label, value, delay = 0, onJoin }) {
   const { ref, value: v } = useCountUp(value, {
     duration: 1000 + delay,
@@ -11,15 +12,12 @@ function StatCard({ label, value, delay = 0, onJoin }) {
   return (
     <div
       ref={ref}
-      className="rounded-xl border border-border-600 bg-bg-900/60 p-4 text-center flex flex-col items-center"
+      className="rounded-xl border border-border-600 bg-bg-900/60 p-4 text-center flex flex-col items-center justify-center"
     >
       <div className="text-2xl font-semibold text-text-primary">{v}</div>
       <div className="text-sm text-text-tertiary mb-3">{label}</div>
       {isHiring && (
-        <button
-          onClick={onJoin}
-          className="mt-auto px-3 py-1.5 rounded-md text-xs font-medium bg-brand-500 hover:bg-accent-luminous text-black transition focus-visible:focus-ring"
-        >
+        <button onClick={onJoin} className="mt-auto btn-link">
           Join us
         </button>
       )}
@@ -27,27 +25,10 @@ function StatCard({ label, value, delay = 0, onJoin }) {
   );
 }
 
-function MemberCard({ name, role, avatar }) {
-  return (
-    <div className="rounded-xl border border-border-600 bg-bg-900/60 p-4 flex flex-col items-center">
-      <img
-        src={avatar}
-        alt={name}
-        width="80"
-        height="80"
-        loading="lazy"
-        className="h-20 w-20 rounded-full object-cover border border-border-500"
-      />
-      <div className="text-text-primary mt-3 font-medium">{name}</div>
-      <div className="text-text-secondary text-sm">{role}</div>
-    </div>
-  );
-}
-
+// Stellen Pop-Up
 function JoinUsModal({ open, onClose, roles = [], returnFocusEl }) {
   const panelRef = useRef(null);
 
-  // Focus-Trap, ESC, Body-Scroll-Lock, Rückfokus
   useEffect(() => {
     if (!open) return;
     const prevOverflow = document.body.style.overflow;
@@ -115,13 +96,13 @@ function JoinUsModal({ open, onClose, roles = [], returnFocusEl }) {
             onClick={onClose}
             className="px-3 py-2 rounded-md border border-border-600 hover:border-border-500 focus-visible:focus-ring"
           >
-            Schließen ✕
+            X
           </button>
         </header>
 
         <div className="p-5">
           <p className="text-text-secondary mb-4">
-            Wir wachsen 2024 weiter – hier sind unsere offenen Rollen:
+            Wir wachsen weiter – hier sind unsere offenen Stellen:
           </p>
 
           <ul className="grid sm:grid-cols-2 gap-4">
@@ -142,10 +123,7 @@ function JoinUsModal({ open, onClose, roles = [], returnFocusEl }) {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={r.href || "#"}
-                  className="px-3 py-1.5 rounded-md text-sm bg-brand-500 hover:bg-accent-luminous text-black transition focus-visible:focus-ring"
-                >
+                <a href={r.href || "#"} className="btn-link">
                   Jetzt bewerben
                 </a>
               </li>
@@ -168,7 +146,6 @@ export default function TeamExpansionPanel({
   headline,
   subhead,
   teamPhoto,
-  members = [],
   stats = [],
 }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -212,16 +189,7 @@ export default function TeamExpansionPanel({
         )}
         {subhead && <p className="text-text-secondary">{subhead}</p>}
       </header>
-      {/* Team Photo */}
-      <figure className="rounded-xl overflow-hidden border border-border-600 bg-bg-900/60 mb-8">
-        <img
-          src={teamPhoto}
-          alt="Teamfoto 2024"
-          className="w-full h-auto object-cover"
-          loading="lazy"
-        />
-      </figure>
-      {/* Stats */}
+      {/* Zähler */}
       {stats.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
           {stats.map((s, i) => (
@@ -238,13 +206,15 @@ export default function TeamExpansionPanel({
           ))}
         </div>
       )}
-      {/* Member Grid 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {members.map((m, i) => (
-          <MemberCard key={i} {...m} />
-        ))}
-      </div>
-      */}
+      {/* Team */}
+      <figure className="rounded-xl overflow-hidden border border-border-600 bg-bg-900/60 mb-8">
+        <img
+          src={teamPhoto}
+          alt="Teamfoto 2024"
+          className="w-full h-80 object-cover"
+          loading="lazy"
+        />
+      </figure>
 
       <JoinUsModal
         open={modalOpen}

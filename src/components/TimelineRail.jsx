@@ -9,7 +9,7 @@ export default function TimelineRail({
   const isLast = activeYear === years[years.length - 1];
 
   return (
-    <nav className="sticky bottom-0 z-20">
+    <nav className="sticky bottom-0 z-20 bg-bg-900">
       <div className="mx-auto my-6 max-w-6xl px-4 py-3 flex items-center gap-3">
         <button
           className="px-3 py-2 text-2xl rounded-md border border-border-600 hover:border-border-500 disabled:opacity-40 focus-visible:focus-ring"

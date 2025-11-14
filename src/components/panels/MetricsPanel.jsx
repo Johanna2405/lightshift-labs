@@ -22,12 +22,11 @@ function Metric({ label, value, suffix, delay = 0 }) {
   );
 }
 
-export default function VideoWithMetricsPanel({
+export default function MetricsPanel({
   headline,
   subhead,
-  video,
-  poster,
-  metrics = [],
+  metrics,
+  text = [],
 }) {
   return (
     <section className="w-full rounded-2xl border border-border-600 p-6 md:p-8 bg-bg-800/40">
@@ -41,20 +40,9 @@ export default function VideoWithMetricsPanel({
       </header>
 
       <div className="grid lg:grid-cols-5 gap-6 items-start">
-        {/* Video */}
-        <figure className="lg:col-span-3 rounded-xl overflow-hidden border border-border-600 bg-bg-900/60">
-          <video
-            className="w-full h-full min-h-10/12"
-            src={video}
-            poster={poster}
-            controls
-            preload="metadata"
-            playsInline
-          />
-          <figcaption className="sr-only">Demo-Video 2017</figcaption>
-        </figure>
+        <p className="lg:col-span-3 text-text-secondary text-s">{text}</p>
 
-        {/* Metrics */}
+        {/* Statistiken */}
         <div className="lg:col-span-2 grid grid-cols-2 gap-4">
           {metrics.map((m, i) => (
             <Metric
