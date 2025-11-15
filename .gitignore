@@ -23,4 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-public/media/2017-demo.mp4
+# Ignore all video files
+*.mp4
+
+# Optional: falls du spezielle Ordner nutzt
+/public/media/*.mp4
+/src/assets/videos/
+/videos/
+/assets/video/
+
