@@ -43,7 +43,6 @@ function percentsFromCounts(counts) {
 
 export default function FeaturePollPanel({
   headline,
-  subhead,
   question,
   pollKey = "feature-poll",
   options = [],

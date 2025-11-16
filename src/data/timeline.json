@@ -13,21 +13,21 @@
             "name": "Alex",
             "role": "Founder & Engine Dev",
             "quote": "Wir bauen Tools, die Kreativität beschleunigen.",
-            "avatar": "/media/team/alex.jpg",
+            "avatar": "/media/team/alex.webp",
             "tags": ["C++", "Rendering", "Build-Systems"]
           },
           {
             "name": "Juna",
             "role": "Co-Founder & Art Direction",
             "quote": "Stylized Sci-Fi ist unsere DNA.",
-            "avatar": "/media/team/juna.jpg",
+            "avatar": "/media/team/juna.webp",
             "tags": ["Art", "Shaders", "UX"]
           },
           {
             "name": "Leo",
             "role": "Business & Community",
             "quote": "Modding-Community first.",
-            "avatar": "/media/team/leo.jpg",
+            "avatar": "/media/team/leo.webp",
             "tags": ["Data", "Docs", "Discord"]
           }
         ]
@@ -155,7 +155,6 @@
       {
         "type": "featurePoll",
         "headline": "Major Toolset Release",
-        "subhead": "Welches Feature ist dein Favorit?",
         "question": "Welches ist dein Lieblings-Feature aus dem 2020 Release?",
         "pollKey": "poll-2020-favorite-feature",
         "baseTotal": 1200,
@@ -164,8 +163,7 @@
           { "id": "graph", "label": "Scene Graph Engine", "percent": 31 },
           { "id": "profiler", "label": "GPU Profiler v1", "percent": 18 },
           { "id": "lighting", "label": "Stylized Lighting Mode", "percent": 9 }
-        ],
-        "note": "Demo-Umfrage · fiktive Ergebnisse"
+        ]
       }
     ]
   },
@@ -178,7 +176,6 @@
         "headline": "AR/VR Engine Feature",
         "subhead": "Mit dem VR-Feature tauchen Creator:innen direkt in ihre Welten ein – in Echtzeit, direkt im Editor.",
         "modelSrc": "/media/vr/vr-brille.glb",
-        "poster": "/models/poster.jpg",
         "features": [
           "Markerless Tracking",
           "Spatial Anchors",
@@ -254,39 +251,7 @@
         "type": "teamExpansion",
         "headline": "Das Team wächst",
         "subhead": "Neue Talente, neue Abteilungen – lightshift labs skaliert.",
-        "teamPhoto": "/media/team/team-2024.jpg",
-        "members": [
-          {
-            "name": "Ayla R.",
-            "role": "Lead Rendering",
-            "avatar": "/media/team/ayla.jpg"
-          },
-          {
-            "name": "Jin M.",
-            "role": "Physics Engineer",
-            "avatar": "/media/team/jin.jpg"
-          },
-          {
-            "name": "Leo K.",
-            "role": "Tech Producer",
-            "avatar": "/media/team/leo.jpg"
-          },
-          {
-            "name": "Naya S.",
-            "role": "UX Research",
-            "avatar": "/media/team/naya.jpg"
-          },
-          {
-            "name": "Rex T.",
-            "role": "Audio DSP",
-            "avatar": "/media/team/rex.jpg"
-          },
-          {
-            "name": "Mira D.",
-            "role": "Community",
-            "avatar": "/media/team/mira.jpg"
-          }
-        ],
+        "teamPhoto": "/media/team/team-2024.webp",
         "stats": [
           { "label": "Teamgröße", "value": 18 },
           { "label": "Neue Abteilungen", "value": 3 },

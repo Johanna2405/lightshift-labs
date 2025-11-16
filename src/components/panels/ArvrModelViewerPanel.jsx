@@ -2,7 +2,6 @@ export default function ArvrModelViewerPanel({
   headline,
   subhead,
   modelSrc,
-  poster,
   features = [],
 }) {
   return (
@@ -23,7 +22,6 @@ export default function ArvrModelViewerPanel({
         <div className="rounded-xl border border-border-600 bg-bg-900/60 p-4">
           <model-viewer
             src={modelSrc}
-            poster={poster}
             auto-rotate
             rotation-per-second="15deg"
             camera-controls
