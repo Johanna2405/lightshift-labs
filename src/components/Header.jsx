@@ -1,6 +1,6 @@
 export default function Header({ onMenuOpen }) {
   return (
-    <header className="sticky top-0 z-20">
+    <header className="">
       <div className="mx-auto px-6 py-4 flex items-center gap-6">
         <div className="flex-1 min-w-0">
           <a href="#">

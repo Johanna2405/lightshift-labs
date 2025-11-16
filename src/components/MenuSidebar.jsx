@@ -122,7 +122,7 @@ export default function MenuSidebar({ open, onClose, returnFocusEl }) {
                         href="#"
                         className="block px-3 py-2 text-lg tracking-widest uppercase font-light hover:font-medium"
                       >
-                        Projekte
+                        Erlebe lightshift
                       </a>
                     </li>
                     <li>

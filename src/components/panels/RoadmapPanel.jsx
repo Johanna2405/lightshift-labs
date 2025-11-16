@@ -101,7 +101,7 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
 
       {/* Roadmap */}
       <div className="rounded-xl border border-border-600 bg-bg-900/60 p-3">
-        <ol className="flex items-center justify-between gap-2">
+        <ol className="flex items-center justify-between gap-2 flex-wrap">
           {quarters.map((q) => {
             const activeQ = q.id === active;
             return (

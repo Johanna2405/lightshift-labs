@@ -32,6 +32,7 @@ export default function ArvrModelViewerPanel({
             disable-zoom
             exposure="0.9"
             shadow-intensity="1"
+            orientation="0deg 90deg 0deg"
             style={{
               width: "100%",
               height: "420px",

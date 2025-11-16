@@ -88,7 +88,7 @@ function JoinUsModal({ open, onClose, roles = [], returnFocusEl }) {
         aria-modal="true"
         aria-label="Stellenangebote"
         ref={panelRef}
-        className="fixed inset-x-0 top-[10vh] z-50 mx-auto w-[92vw] max-w-2xl rounded-2xl border border-border-600 bg-bg-800 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+        className="fixed inset-x-0 top-[10vh] z-50 mx-auto w-[92vw] max-w-2xl max-h-[80vh] overflow-y-auto overscroll-contain rounded-2xl border border-border-600 bg-bg-800 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
       >
         <header className="flex items-center justify-between px-5 py-4 border-b border-border-600">
           <h3 className="text-lg font-semibold">Join us</h3>

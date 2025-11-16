@@ -5,7 +5,7 @@ export default function InfographicMultiLayerPanel({
 }) {
   const description = `
 Mit der Einführung des Open-Source SDK 2023 haben wir erstmals die gesamte modulare Architektur der Engine transparent offengelegt. 
-Das neue Layer-Modell trennt Core-Runtime, Engine-Systeme, SDK-Module, Tools und Anwendungs-Schichten strikt voneinander. Dadurch können Entwickler einzelne Ebenen unabhängig erweitern, eigene Module integrieren oder vorhandene Pipelines ersetzen – ohne den Kern anzutasten. Die klare Struktur verbessert die Wartbarkeit, ermöglicht schnellere Iterationen und bietet unserer Community einen stabilen, erweiterbaren technischen Unterbau für zukünftige Projekte.
+Das neue Layer-Modell trennt Core-Runtime, Engine-Systeme, SDK-Module, Tools und Anwendungs-Schichten strikt voneinander. Dadurch können Entwickler:innen einzelne Ebenen unabhängig erweitern, eigene Module integrieren oder vorhandene Pipelines ersetzen – ohne den Kern anzutasten. Die klare Struktur verbessert die Wartbarkeit, ermöglicht schnellere Iterationen und bietet unserer Community einen stabilen, erweiterbaren technischen Unterbau für zukünftige Projekte.
   `;
 
   return (

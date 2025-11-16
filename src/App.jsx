@@ -8,7 +8,7 @@ import MenuSidebar from "./components/MenuSidebar.jsx";
 import PanelRenderer from "./components/PanelRenderer.jsx";
 
 const YEARS = data.map((d) => d.year);
-const LATEST = Math.max(...YEARS);
+const EARLIEST = Math.min(...YEARS);
 
 export default function App() {
   // Navigation
@@ -26,10 +26,10 @@ export default function App() {
   };
   const closeMenu = () => setMenuOpen(false);
 
-  // Timeline-Funktionen
+  // Mit 2016 starten
   const currentYear = useMemo(() => {
     const y = parseInt(year, 10);
-    return Number.isFinite(y) && YEARS.includes(y) ? y : LATEST;
+    return Number.isFinite(y) && YEARS.includes(y) ? y : EARLIEST;
   }, [year]);
 
   const idx = YEARS.indexOf(currentYear);
@@ -39,7 +39,7 @@ export default function App() {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (menuOpen) return; // Navigation sperren während Menü
+      if (menuOpen) return; // Navigation sperren während Menü geöffnet ist
       if (e.key === "ArrowLeft" && prevYear) go(prevYear);
       if (e.key === "ArrowRight" && nextYear) go(nextYear);
     };
@@ -69,7 +69,7 @@ export default function App() {
           >
             <h1
               id="year-heading"
-              className="text-6xl md:text-8xl mb-2 text-brand-500 font-bold tracking-wider"
+              className="text-5xl md:text-7xl mb-2 text-brand-500 font-bold tracking-wider"
             >
               {currentYear}
             </h1>

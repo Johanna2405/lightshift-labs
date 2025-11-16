@@ -10,7 +10,8 @@ export default function TimelineRail({
 
   return (
     <nav className="sticky bottom-0 z-20 bg-bg-900">
-      <div className="mx-auto my-6 max-w-6xl px-4 py-3 flex items-center gap-3">
+      <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-brand-500/60 to-transparent"></div>
+      <div className="mx-auto max-w-6xl px-4 py-8 flex items-center gap-3 ">
         <button
           className="px-3 py-2 text-2xl rounded-md border border-border-600 hover:border-border-500 disabled:opacity-40 focus-visible:focus-ring"
           onClick={onPrev}
