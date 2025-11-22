@@ -1,3 +1,4 @@
+// Import der einzelnen Panel-Komponenten
 import TeamIntroPanel from "./panels/TeamIntroPanel.jsx";
 import MetricsPanel from "./panels/MetricsPanel.jsx";
 import CommunityBubblesPanel from "./panels/CommunityBubblesPanel.jsx";
@@ -9,6 +10,7 @@ import RoadmapPanel from "./panels/RoadmapPanel.jsx";
 import ArvrModelViewerPanel from "./panels/ArvrModelViewerPanel.jsx";
 import FeaturePollPanel from "./panels/FeaturePollPanel.jsx";
 
+// Registry-Objekt, dass alle verfügbaren Paneltypen über ihre "type"-Bezeichnung mit der zugehörigen React-Komponente verknüpft
 const registry = {
   teamIntro: TeamIntroPanel,
   metrics: MetricsPanel,
@@ -22,10 +24,14 @@ const registry = {
   roadmap: RoadmapPanel,
 };
 
+// Zentrale Komponente, die entscheidet, welche Panel-Komponente gerendert wird
 export default function PanelRenderer({ panel }) {
+  // Ermittelt anhand des Typs die passende Komponente aus dem Registry-Objekt
   const Cmp = registry[panel?.type];
+
+  // Falls der Typ unbekannt ist oder keine Komponente vorhanden ist:
+  // Rückgabe eines Fallback-Elements mit Hinweistext
   if (!Cmp) {
-    // Fallback: unbekannter Paneltyp (noch nicht implementiert)
     return (
       <section className="rounded-2xl border border-border-600 p-6 bg-bg-800/40">
         <div className="text-text-tertiary text-sm">
@@ -35,5 +41,7 @@ export default function PanelRenderer({ panel }) {
       </section>
     );
   }
+
+  // Rendert die passende Panel-Komponente und übergibt ihr alle Inhalte aus der JSON-Datei
   return <Cmp {...panel} />;
 }
