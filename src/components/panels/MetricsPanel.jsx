@@ -1,14 +1,15 @@
+// Import des benutzerdefinierten Hooks für Zähler-Animationen
 import useCountUp from "../../hooks/useCountUp";
 
-// Einzelelement für eine Kennzahl
+// Komponente für ein einzelnes Statistik-Element
 function Metric({ label, value, suffix, delay = 0 }) {
-  // Der benutzerdefinierte Hook steuert den animierten Zählvorgang
+  // Der Custom Hook „useCountUp“ animiert Zahlenwerte von 0 bis zum Zielwert
   const { ref, value: v } = useCountUp(typeof value === "number" ? value : 0, {
-    duration: 1000 + delay, // Animationsdauer
-    startOnView: true, // Startet beim Sichtbarwerden
+    duration: 1000 + delay, // Dauer der Animation in Millisekunden
+    startOnView: true, // Startet die Animation, sobald das Element sichtbar ist
   });
 
-  // Formatierung der Ausgabe
+  // Ausgabeformatierung (z. B. Tausendertrennung)
   const display =
     typeof value === "number" ? v.toLocaleString() : String(value);
 
@@ -17,17 +18,18 @@ function Metric({ label, value, suffix, delay = 0 }) {
       ref={ref}
       className="rounded-xl border border-border-600 p-4 bg-bg-900/60"
     >
-      {/* Animierter Zähler */}
+      {/* Hauptwert mit animiertem Zähler */}
       <div className="text-2xl md:text-3xl font-semibold text-text-primary">
         {display}
         {suffix ? <span className="text-text-secondary"> {suffix}</span> : null}
       </div>
+      {/* Beschriftung unterhalb des Wertes */}
       <div className="text-sm text-text-tertiary mt-1">{label}</div>
     </div>
   );
 }
 
-// Container-Komponente für das Panel
+// Container-Komponente für das gesamte Panel
 export default function MetricsPanel({
   headline,
   subhead,
@@ -36,7 +38,7 @@ export default function MetricsPanel({
 }) {
   return (
     <section className="w-full rounded-2xl border border-border-600 p-6 md:p-8 bg-bg-800/40">
-      {/* Panelüberschrift */}
+      {/* Überschrift und Unterzeile des Panels */}
       <header className="mb-6">
         {headline && (
           <h2 className="text-2xl md:text-3xl mb-1 font-semibold">
@@ -46,12 +48,12 @@ export default function MetricsPanel({
         {subhead && <p className="text-text-secondary">{subhead}</p>}
       </header>
 
-      {/* Layoutstruktur */}
+      {/* Zwei-Spalten-Layout:
+          - Links: Beschreibungstext
+          - Rechts: animierte Kennzahlen */}
       <div className="grid lg:grid-cols-5 gap-6 items-start">
-        {/* Linke Spalte: Beschreibung */}
         <p className="lg:col-span-3 text-text-secondary text-s">{text}</p>
 
-        {/* Rechte Spalte: Kennzahlen */}
         <div className="lg:col-span-2 grid grid-cols-2 gap-4">
           {metrics.map((m, i) => (
             <Metric
@@ -59,7 +61,7 @@ export default function MetricsPanel({
               label={m.label}
               value={m.value}
               suffix={m.suffix}
-              delay={i * 120}
+              delay={i * 120} // zeitversetzter Start für gestaffelte Animation
             />
           ))}
         </div>

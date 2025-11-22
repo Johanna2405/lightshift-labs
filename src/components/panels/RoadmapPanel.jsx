@@ -1,6 +1,10 @@
+// React-Hooks für Zustand und Seiteneffekte
 import { useEffect, useMemo, useState } from "react";
+// Framer Motion für sanfte Übergänge und Animationen
 import { motion, AnimatePresence } from "framer-motion";
 
+// Farbzuordnung für verschiedene Item-Typen in der Roadmap
+// (definiert über CSS-Variablen für konsistente Farbverwaltung)
 const TYPES_COLORS = {
   feature: "var(--color-brand-500)",
   tech: "var(--color-accent-indigo)",
@@ -14,14 +18,16 @@ const TYPES_COLORS = {
 };
 
 export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
+  // Aktiver Quartalszustand (Standard: erstes Quartal)
   const [active, setActive] = useState(quarters[0]?.id || "Q1");
 
+  // Ermittelt das aktuell ausgewählte Quartal aus den übergebenen Daten
   const activeData = useMemo(
     () => quarters.find((q) => q.id === active) || quarters[0],
     [active, quarters]
   );
 
-  // Keyboard-Navigation: ← →
+  // Tastaturnavigation mit Pfeiltasten
   useEffect(() => {
     const onKey = (e) => {
       if (!quarters.length) return;
@@ -36,7 +42,7 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
 
   return (
     <section className="w-full rounded-2xl border border-border-600 p-6 md:p-8 bg-bg-800/40">
-      {/* Header */}
+      {/* Header-Bereich mit Überschrift und Untertitel */}
       <header className="mb-6">
         {headline && (
           <h2 className="text-2xl md:text-3xl mb-1 font-semibold">
@@ -46,9 +52,10 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
         {subhead && <p className="text-text-secondary">{subhead}</p>}
       </header>
 
-      {/* Content Card */}
+      {/* Haupt-Content-Karte für das aktuell aktive Quartal */}
       <div className="rounded-2xl border border-border-600 bg-bg-900/60 p-5 md:p-6 mb-6">
         <AnimatePresence mode="wait">
+          {/* Animierter Wechsel zwischen Quartalen */}
           <motion.div
             key={activeData?.id}
             initial={{ opacity: 0, x: 20 }}
@@ -56,6 +63,7 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.22 }}
           >
+            {/* Quartalsüberschrift + Zeitraum */}
             <div className="flex flex-wrap items-end gap-3">
               <h3 className="text-xl md:text-2xl font-semibold">
                 {activeData?.title}
@@ -67,13 +75,14 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
               )}
             </div>
 
-            {/* Items */}
+            {/* Liste der geplanten Features für das Quartal */}
             <ul className="mt-4 grid sm:grid-cols-2 gap-3">
               {(activeData?.items || []).map((it, i) => (
                 <li
                   key={i}
                   className="flex items-start gap-3 rounded-lg border border-border-600 bg-bg-800/60 px-3 py-2"
                 >
+                  {/* Farbpunkte als Typindikator */}
                   <span
                     aria-hidden
                     className="mt-1 inline-block h-3 w-3 rounded-full"
@@ -87,7 +96,7 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
               ))}
             </ul>
 
-            {/* CtA */}
+            {/* Optionaler Call-to-Action-Link pro Quartal */}
             {activeData?.cta && (
               <div className="mt-5">
                 <a href={activeData.cta.href} className="btn-link inline-block">
@@ -99,7 +108,7 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
         </AnimatePresence>
       </div>
 
-      {/* Roadmap */}
+      {/* Navigationsbereich: Darstellung aller Quartale (Q1–Q4) */}
       <div className="rounded-xl border border-border-600 bg-bg-900/60 p-3">
         <ol className="flex items-center justify-between gap-2 flex-wrap">
           {quarters.map((q) => {
@@ -117,6 +126,7 @@ export default function RoadmapPanel({ headline, subhead, quarters = [] }) {
                     }`}
                 >
                   <div className="flex items-center justify-center gap-2">
+                    {/* Aktives Quartal visuell hervorgehoben */}
                     <span
                       aria-hidden
                       className={`h-2.5 w-2.5 rounded-full ${
