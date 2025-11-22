@@ -1,6 +1,10 @@
+// Import grundlegender React-Hooks
 import { useEffect, useMemo, useState } from "react";
 
-// Funktionen für Umfrage
+/* Hilfsfunktionen zur Berechnung und Normalisierung
+   der Umfrageergebnisse */
+
+// Normalisiert Prozentangaben, damit sie zusammen 100 % ergeben
 function normalizePercents(options) {
   const total = options.reduce((s, o) => s + (o.percent ?? 0), 0) || 1;
   return options.map((o) => ({
@@ -9,6 +13,7 @@ function normalizePercents(options) {
   }));
 }
 
+// Wandelt Prozentwerte in absolute Stimmen um
 function countsFromPercents(options, baseTotal) {
   const norm = normalizePercents(options);
   const raw = norm.map((o) => ({
@@ -16,13 +21,19 @@ function countsFromPercents(options, baseTotal) {
     label: o.label,
     ideal: (o.percent / 100) * baseTotal,
   }));
+
+  // Abrunden der Werte und Ausgleich der Rundungsdifferenzen
   const floored = raw.map((r) => ({ ...r, count: Math.floor(r.ideal) }));
   let diff = baseTotal - floored.reduce((s, r) => s + r.count, 0);
+
+  // Verteilt restliche Stimmen nach größten Nachkommanteilen
   const byFrac = [...raw]
     .map((r, i) => ({ i, frac: r.ideal - Math.floor(r.ideal) }))
     .sort((a, b) => b.frac - a.frac);
   for (let k = 0; k < diff; k++)
     floored[byFrac[k % floored.length].i].count += 1;
+
+  // Gibt finale Count-Werte je Option zurück
   return floored.map((r, i) => ({
     id: options[i].id,
     label: options[i].label,
@@ -30,6 +41,7 @@ function countsFromPercents(options, baseTotal) {
   }));
 }
 
+// Berechnet Prozentwerte aus absoluten Stimmen
 function percentsFromCounts(counts) {
   const total = Math.max(
     1,
@@ -48,10 +60,11 @@ export default function FeaturePollPanel({
   options = [],
   baseTotal = 1200,
 }) {
+  // Zustände für Auswahl und Anzeige
   const [choice, setChoice] = useState(null);
   const [showResults, setShowResults] = useState(false);
 
-  // Auswahl im localStorage hinterlegen
+  // Prüft beim Laden, ob bereits eine Auswahl im localStorage gespeichert ist
   useEffect(() => {
     try {
       const stored = window.localStorage.getItem(pollKey);
@@ -62,22 +75,25 @@ export default function FeaturePollPanel({
     } catch {}
   }, [pollKey]);
 
+  // Basiswerte (Anfangsverteilung)
   const baseCounts = useMemo(
     () => countsFromPercents(options, baseTotal),
     [options, baseTotal]
   );
 
+  // Berechnet aktuelle Stimmenverteilung inklusive Nutzerwahl
   const computed = useMemo(() => {
     const counts = baseCounts.map((c) => ({ ...c }));
     if (choice) {
       const hit = counts.find((c) => c.id === choice);
-      if (hit) hit.count += 1;
+      if (hit) hit.count += 1; // eigene Stimme hinzufügen
     }
     const withPerc = percentsFromCounts(counts);
     const totalVotes = counts.reduce((s, c) => s + c.count, 0);
     return { rows: withPerc, totalVotes };
   }, [baseCounts, choice]);
 
+  // Auswahl einer Option (wird gespeichert)
   const onVote = (id) => {
     if (choice) {
       setShowResults(true);
@@ -90,6 +106,7 @@ export default function FeaturePollPanel({
     } catch {}
   };
 
+  // Zurücksetzen der Auswahl (lokal)
   const onReset = () => {
     try {
       window.localStorage.removeItem(pollKey);
@@ -108,6 +125,8 @@ export default function FeaturePollPanel({
           </h2>
         )}
       </header>
+
+      {/* Beschreibung + Icon */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
         <p className="text-text-secondary leading-relaxed max-w-2xl text-base">
           Mit dem Major Release brachten wir 2020 die bislang größte Evolution
@@ -124,10 +143,11 @@ export default function FeaturePollPanel({
         </div>
       </div>
 
-      {/* Umfrage */}
+      {/* Umfragebereich */}
       <div className="rounded-2xl border border-border-600 bg-bg-900/60 p-5">
         {question && <h3 className="text-lg font-medium mb-4">{question}</h3>}
 
+        {/* Zustand 1: Abstimmung noch nicht abgegeben */}
         {!showResults ? (
           <div
             role="radiogroup"
@@ -153,6 +173,7 @@ export default function FeaturePollPanel({
             ))}
           </div>
         ) : (
+          // Zustand 2: Ergebnisse anzeigen
           <div className="space-y-3" aria-live="polite">
             {computed.rows.map((row) => {
               const isChoice = choice === row.id;
@@ -189,6 +210,8 @@ export default function FeaturePollPanel({
                       <span>({row.count.toLocaleString()} Stimmen)</span>
                     </div>
                   </div>
+
+                  {/* Fortschrittsbalken für Prozentanzeige */}
                   <div className="h-2 rounded-full bg-bg-700 overflow-hidden">
                     <div
                       className="h-full rounded-full bg-brand-500 transition-[width] duration-700"
@@ -199,6 +222,7 @@ export default function FeaturePollPanel({
               );
             })}
 
+            {/* Zurücksetzen-Button */}
             <div className="flex flex-wrap items-center justify-end gap-3 pt-2 text-xs text-text-tertiary">
               <button onClick={onReset} className="btn-link--ghost">
                 Zurück
